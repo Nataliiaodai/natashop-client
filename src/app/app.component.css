@@ -1,21 +1,22 @@
-.bck-cl {
-  background-color: rgba(255, 105, 180, 0.15);
-  border-radius: 30px;
+.header-base {
+  background-color: rgba(194, 149, 170, 0.18);
+  /*border-radius: 30px;*/
   padding: 10px 15px;
   border: white 1px solid;
+  margin-bottom: 40px;
 }
 
-.bck-cl-container {
-  padding: 10px;
-
-}
-
-.bck-cl-footer {
+.footer-base {
   border: white 1px solid;
-  background-color: rgba(255, 105, 180, 0.15);
-  border-radius: 30px;
+  background-color: rgba(194, 149, 170, 0.18);
+  /*border-radius: 30px;*/
   padding: 10px 25px;
+  margin-top: 120px;
+}
 
+.container {
+  box-shadow: 0 0 11px rgba(183, 182, 182, 0.88);
+  padding: 0;
 }
 
 /*align-items: baseline;*/

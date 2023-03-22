@@ -10,7 +10,7 @@
 <body>
 
 <div class="container">
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom bck-cl">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom header-base">
 <!--  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom bck-cl">-->
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
@@ -22,7 +22,7 @@
           </div>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a href="#" class="nav-link px-2 link-dark">Home</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark" routerLink="/admin/products" routerLinkActive="active-link">Catalog</a></li>
+      <li><a class="nav-link px-2 link-dark" routerLink="/client/catalog" routerLinkActive="active-link">Catalog</a></li>
       <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
       <li><a href="#" class="nav-link px-2 link-dark">Contacts</a></li>
       <li><a href="#" class="nav-link px-2 link-dark">About Us</a></li>
@@ -39,18 +39,15 @@
   </header>
 
 
-<div class="container" style=" height: calc(100vh - 135px);">
-<!--  <h2>Product greed</h2>-->
-</div>
+<router-outlet></router-outlet>
 
-  <div class="container bck-cl-container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center border-top bck-cl-footer">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer-base">
       <div class="col-md-4 d-flex align-items-center">
         <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <img src="https://cdn-icons-png.flaticon.com/512/546/546064.png?w=826&t=st=1679395295~exp=1679395895~hmac=65c0a7c28fcabccbabcdcf7248bf08b1fac48564ae5ebdf7b61adbf443f59850"
                  alt="logo" style="width: 45px; height: 40px; margin-right: 5px">
         </a>
-        <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+        <span class="mb-3 mb-md-0 text-muted">© 2023 NataShop Company, Inc</span>
       </div>
 
       <ul class="list-unstyled d-flex" style="margin: 0;">
@@ -82,7 +79,6 @@
         </li>
       </ul>
     </footer>
-  </div>
 
 </div>
 </body>
