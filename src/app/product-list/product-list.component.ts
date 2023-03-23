@@ -8,9 +8,10 @@ import {Router} from "@angular/router";
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent  implements OnInit{
+export class ProductListComponent implements OnInit {
+  sortInput: string = '';
 
-  page = 3;
+  page = 1;
   limit = 25;
   searchString = '';
   sort = '_id';
@@ -27,7 +28,15 @@ export class ProductListComponent  implements OnInit{
 
   ngOnInit() {
     this.fetchAndSaveResponseData();
+    // pageToPaginate();
   }
+
+  // pageToPaginate() {
+  //   let pages: [] = [];
+  //   for (let pageP=1; pageP <this.pagesTotal; pageP += 1) {
+  //
+  //   }
+  // }
 
   fetchAndSaveResponseData() {
     this.productListService.fetchProductPage(this.page, this.limit, this.searchString, this.sort, this.direction)
@@ -44,6 +53,13 @@ export class ProductListComponent  implements OnInit{
   onImageError(event: any) {
     event.target.src = 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
   }
+
+  onSearch(sortInput: string) {
+    this.searchString = sortInput;
+    this.limit = 25;
+    this.page = 1;
+    this.fetchAndSaveResponseData();
+  };
 
 
   onGettingNextPage() {
@@ -63,11 +79,17 @@ export class ProductListComponent  implements OnInit{
     }
   }
 
+  onGettingPage(pageToLoad: number) {
+    this.page = pageToLoad;
+    this.fetchAndSaveResponseData()
+  }
+
   onGetProductDetail(prodId: number) {
     console.log(prodId);
     this.router.navigate(['client/catalog/detail/' + prodId])
       .then();
   }
+
   //
   // onSortByName() {
   //   this.onNewSortField("name.uk");

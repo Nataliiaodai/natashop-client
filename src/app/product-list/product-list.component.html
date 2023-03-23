@@ -1,74 +1,70 @@
-<!--<div class="container" style=" height: calc(100vh - 150px);">-->
-<!--  <hr>-->
-<div class="search-box">
-  <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search" style="width: 40%; display: flex">
-    <input type="search" class="form-control search-input" placeholder="Search..." aria-label="Search">
-    <button class="btn joinBtn" type="submit">Find</button>
-  </form>
-</div>
+<div class="container">
+  <!--  <hr>-->
 
-<!--<hr>-->
+  <div class="search-box">
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search" style="width: 40%; display: flex">
+      <input type="search" class="form-control search-input" placeholder="Search..." ngModel name="sortInput"
+             [(ngModel)]="this.sortInput"aria-label="Search">
+      <button class="btn joinBtn" type="submit" (click)="onSearch(this.sortInput)">Find</button>
+    </form>
+  </div>
 
-<div class="grid-wrapper">
+  <div class="flex-list">
+    <p class="margin" style=" margin-right: 15px;">Items on Page</p>
+    <select (change)="fetchAndSaveResponseData()"
+            ngModel name="limit"
+            [(ngModel)]="this.limit"
+            class="form-select"
+            aria-label="Default select example"
+            style="width: 80px;">
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="250">250</option>
+      <option value="500">500</option>
+    </select>
+  </div>
 
-  <div (click)="onGetProductDetail(productListItem._id)" class="grid-wrapper-item"
-       *ngFor="let productListItem of this.productList;">
-    <div class="image-container">
-      <img style="height: 150px; width: 150px; margin-bottom: 10px"
-           src="{{productListItem.medias[0]?.variantsUrls?.small}}" alt="{{productListItem.medias[0]?.altText}}"
-           (error)="onImageError($event)">
+<!--  <div class="flex-list">-->
+
+<!--  </div>-->
+
+  <!--<hr>-->
+
+  <div class="grid-wrapper">
+
+    <div (click)="onGetProductDetail(productListItem._id)" class="grid-wrapper-item"
+         *ngFor="let productListItem of this.productList;">
+      <div class="image-container">
+        <img style="height: 150px; width: 150px; margin-bottom: 10px"
+             src="{{productListItem.medias[0]?.variantsUrls?.small}}" alt="{{productListItem.medias[0]?.altText}}"
+             (error)="onImageError($event)">
+      </div>
+      <p>{{productListItem.name}}</p>
+      <p>Price: {{productListItem.price}}</p>
     </div>
-    <p>{{productListItem.name}}</p>
-    <p>Price: {{productListItem.price}}</p>
+
+  </div>
+
+  <div class="pagination">
+    <button type="button" class="btn btn-link page-item" [ngClass]="{visibilityHidden: this.page === 1}" (click)="onGettingPreviousPage()">
+      «
+    </button>
+    <button type="button" class="btn btn-link page-item" *ngIf="this.page > 1" (click)="onGettingPage(this.page-1)"
+            style="cursor: pointer"> {{this.page - 1}}</button>
+    <button type="button" class="btn btn-link page-item activePage">{{this.page}}</button>
+    <button type="button" class="btn btn-link page-item" *ngIf="this.pagesTotal > this.page"
+            (click)="onGettingPage(this.page+1)" style="cursor: pointer">{{this.page + 1}}</button>
+    <button type="button" class="btn btn-link page-item"
+            [ngClass]="{visibilityHidden: this.page  >= this.pagesTotal}" (click)="onGettingNextPage()"
+            style="cursor: pointer">
+      »
+    </button>
+    <button type="button" class="btn btn-link page-item" ngModel [(ngModel)]="this.pagesTotal"
+            (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer">{{this.pagesTotal}}</button>
   </div>
 
 </div>
 
-<div class="pagination:container">
-  <div class="pagination:number arrow">
-    <svg width="18" height="18">
-      <use xlink:href="#left"/>
-    </svg>
-    <span [ngClass]="{visibilityHidden: this.page === 1}" (click)="onGettingPreviousPage()" class="arrow:text">Previous</span>
-  </div>
-
-  <div class="pagination:number" *ngIf="this.page >= 1">
-    1
-  </div>
-  <div class="pagination:number" *ngIf="this.page >= 2">
-    2
-  </div>
-<!--  pagination:active-->
-
-  <div class="pagination:number pagination:active" *ngIf="this.page >= 3">
-    3
-  </div>
-
-  <div class="pagination:number" *ngIf="this.page >= 4">
-    4
-  </div>
-
-  <div class="pagination:number" ngModel name="limit" [(ngModel)]="this.limit">
-    {{this.limit}}
-  </div>
-
-  <div class="pagination:number arrow">
-    <svg [ngClass]="{visibilityHidden: this.page  >= this.pagesTotal}"
-         (click)="onGettingNextPage()"  width="18" height="18">
-      <use xlink:href="#right"/>
-    </svg>
-  </div>
-</div>
-
-<svg class="hide">
-  <symbol id="left" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-  </symbol>
-  <symbol id="right" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-  </symbol>
-</svg>
-<!--<hr>-->
-<!--</div>-->
 
 
