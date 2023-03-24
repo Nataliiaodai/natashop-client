@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ProductListService} from "./product-list.service";
 import {ProductListItem} from "../shared-model/product-list-item.model";
 import {Router} from "@angular/router";
@@ -12,12 +12,14 @@ export class ProductListComponent implements OnInit {
   sortInput: string = '';
 
   page = 1;
+  @Input()
   limit = 25;
   searchString = '';
   sort = '_id';
   direction = 'desc';
 
   productList: ProductListItem [] = [];
+  @Input()
   pagesTotal = 0;
   itemsTotal = 0;
   itemsFiltered = 0;

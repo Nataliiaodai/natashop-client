@@ -11,9 +11,9 @@
 
   <div class="flex-list">
     <p class="margin" style=" margin-right: 15px;">Items on Page</p>
-    <select (change)="fetchAndSaveResponseData()"
-            ngModel name="limit"
+    <select ngModel name="limit"
             [(ngModel)]="this.limit"
+            (ngModelChange)="fetchAndSaveResponseData()"
             class="form-select"
             aria-label="Default select example"
             style="width: 80px;">
@@ -60,7 +60,7 @@
             style="cursor: pointer">
       »
     </button>
-    <button type="button" class="btn btn-link page-item" ngModel [(ngModel)]="this.pagesTotal"
+    <button type="button" class="btn btn-link page-item" ngModel name="pagesTotal" [(ngModel)]="this.pagesTotal"
             (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer">{{this.pagesTotal}}</button>
   </div>
 
