@@ -1,1 +1,15 @@
-<p>product works!</p>
+<title>{{prod._id}}</title>
+<title>{{prod.name}}</title>
+<title>{{prod.price}}</title>
+<p>{{prod.fullDescription}}</p>
+<div *ngFor="let mediaItem of prod.medias">
+  <div class="image-container">
+    <img style="height: 150px; width: 150px; margin-bottom: 10px"
+         src="{{mediaItem.variantsUrls.large_square}}" alt="{{mediaItem.altText}}"
+         (error)="onImageError($event)">
+  </div>
+</div>
+<p>ffgff</p>
+
+
+

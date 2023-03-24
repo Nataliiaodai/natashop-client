@@ -12,9 +12,9 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
 
-  getProduct(slug: string, idToGetProduct: number):Observable<Product> {
-    return this.http.get<Product>(GlobalVariables.baseURL + 'products/slug' + slug);
+  getProduct(slug: string):Observable<Product> {
+    return this.http.get<Product>(GlobalVariables.baseURL + '/slug/' + slug);
   }
 
-
+  // http://localhost:3000/api/v1/products/slug/holst-na-podramnike-20h30-sm-hlopok-akril-srednee-zerno-rosa-gallery
 }

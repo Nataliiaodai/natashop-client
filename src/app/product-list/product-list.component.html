@@ -4,7 +4,7 @@
   <div class="search-box">
     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search" style="width: 40%; display: flex">
       <input type="search" class="form-control search-input" placeholder="Search..." ngModel name="sortInput"
-             [(ngModel)]="this.sortInput"aria-label="Search">
+             [(ngModel)]="this.sortInput" aria-label="Search">
       <button class="btn joinBtn" type="submit" (click)="onSearch(this.sortInput)">Find</button>
     </form>
   </div>
@@ -13,7 +13,7 @@
     <p class="margin" style=" margin-right: 15px;">Items on Page</p>
     <select ngModel name="limit"
             [(ngModel)]="this.limit"
-            (ngModelChange)="fetchAndSaveResponseData()"
+            (change)="onLimitChange()"
             class="form-select"
             aria-label="Default select example"
             style="width: 80px;">
@@ -31,9 +31,9 @@
 
   <!--<hr>-->
 
-  <div class="grid-wrapper">
 
-    <div (click)="onGetProductDetail(productListItem._id)" class="grid-wrapper-item"
+  <div class="grid-wrapper">
+    <div (click)="onGetProductDetail(productListItem.slug)" class="grid-wrapper-item"
          *ngFor="let productListItem of this.productList;">
       <div class="image-container">
         <img style="height: 150px; width: 150px; margin-bottom: 10px"
@@ -50,18 +50,18 @@
     <button type="button" class="btn btn-link page-item" [ngClass]="{visibilityHidden: this.page === 1}" (click)="onGettingPreviousPage()">
       «
     </button>
-    <button type="button" class="btn btn-link page-item" *ngIf="this.page > 1" (click)="onGettingPage(this.page-1)"
+    <button type="button" class="btn btn-link page-item" *ngIf="this.page > 1" (click)="onGettingPreviousPage()"
             style="cursor: pointer"> {{this.page - 1}}</button>
     <button type="button" class="btn btn-link page-item activePage">{{this.page}}</button>
     <button type="button" class="btn btn-link page-item" *ngIf="this.pagesTotal > this.page"
-            (click)="onGettingPage(this.page+1)" style="cursor: pointer">{{this.page + 1}}</button>
+            (click)="onGettingNextPage()" style="cursor: pointer">{{this.page + 1}}</button>
     <button type="button" class="btn btn-link page-item"
             [ngClass]="{visibilityHidden: this.page  >= this.pagesTotal}" (click)="onGettingNextPage()"
             style="cursor: pointer">
       »
     </button>
     <button type="button" class="btn btn-link page-item" ngModel name="pagesTotal" [(ngModel)]="this.pagesTotal"
-            (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer">{{this.pagesTotal}}</button>
+            (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer"> Pages Total: {{this.pagesTotal}}</button>
   </div>
 
 </div>

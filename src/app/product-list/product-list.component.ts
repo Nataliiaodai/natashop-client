@@ -11,15 +11,13 @@ import {Router} from "@angular/router";
 export class ProductListComponent implements OnInit {
   sortInput: string = '';
 
-  page = 1;
-  @Input()
-  limit = 25;
-  searchString = '';
-  sort = '_id';
-  direction = 'desc';
+  page: number = 1;
+  limit: number = 25;
+  searchString: string = '';
+  sort: string = '_id';
+  direction: string = 'desc';
 
   productList: ProductListItem [] = [];
-  @Input()
   pagesTotal = 0;
   itemsTotal = 0;
   itemsFiltered = 0;
@@ -30,15 +28,14 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.fetchAndSaveResponseData();
-    // pageToPaginate();
   }
 
-  // pageToPaginate() {
-  //   let pages: [] = [];
-  //   for (let pageP=1; pageP <this.pagesTotal; pageP += 1) {
-  //
-  //   }
-  // }
+
+  onLimitChange() {
+    this.page = 1;
+    this.fetchAndSaveResponseData();
+  }
+
 
   fetchAndSaveResponseData() {
     this.productListService.fetchProductPage(this.page, this.limit, this.searchString, this.sort, this.direction)
@@ -58,81 +55,34 @@ export class ProductListComponent implements OnInit {
 
   onSearch(sortInput: string) {
     this.searchString = sortInput;
-    this.limit = 25;
     this.page = 1;
     this.fetchAndSaveResponseData();
+    // if (this.itemsFiltered === 0) {
+      // this.router.navigate(['client/catalog/notFound-404'])
+      //   .then();
+    // }
   };
 
 
   onGettingNextPage() {
-    if (this.page
-      && this.pagesTotal
-      && (this.page < this.pagesTotal)
-    ) {
       this.page += 1;
       this.fetchAndSaveResponseData();
-    }
   }
 
   onGettingPreviousPage() {
-    if (this.page && this.page > 1) {
       this.page -= 1;
       this.fetchAndSaveResponseData();
-    }
   }
 
-  onGettingPage(pageToLoad: number) {
-    this.page = pageToLoad;
-    this.fetchAndSaveResponseData()
+  onGettingPage(totalPages: number) {
+    this.page = totalPages;
+    this.fetchAndSaveResponseData();
   }
 
-  onGetProductDetail(prodId: number) {
-    console.log(prodId);
-    this.router.navigate(['client/catalog/detail/' + prodId])
+  onGetProductDetail(prodSlug: string) {
+    console.log(prodSlug);
+    this.router.navigate([`${prodSlug}`])
       .then();
   }
-
-  //
-  // onSortByName() {
-  //   this.onNewSortField("name.uk");
-  // }
-  //
-  // onSortByID() {
-  //   this.onNewSortField("_id");
-  // }
-  //
-  // onSortByPrice() {
-  //   this.onNewSortField("price");
-  // }
-  //
-  // private onNewSortField(newSortField: string) {
-  //   console.log('onNewSortField ' + newSortField);
-  //   if (this.sort === newSortField) {
-  //     this.flipSortDirection();
-  //   } else {
-  //     this.sort = newSortField;
-  //     this.direction = 'desc';
-  //     console.log('onNewSortField ' + newSortField + " direction=" + this.direction + " sort=" + this.sort);
-  //   }
-  //   this.fetchAndSaveResponseData();
-  // }
-  //
-  // onFiltersReset() {
-  //   this.page = 1;
-  //   this.limit = 25;
-  //   this.searchString = '';
-  //   this.sort = '_id';
-  //   this.direction = 'desc';
-  //   console.log('All filters were reset');
-  //   this.fetchAndSaveResponseData();
-  // }
-  //
-  // private flipSortDirection() {
-  //   if (this.direction === 'asc') {
-  //     this.direction = 'desc';
-  //   } else {
-  //     this.direction = 'asc';
-  //   }
-  // }
 
 }

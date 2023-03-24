@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {MediasObjectModel} from "../shared-model/medias.obect.model";
 import {HttpClient} from "@angular/common/http";
 import {Product} from "../shared-model/product.model";
-import {GlobalVariables} from "../global-variables";
 import {ProductService} from "./product.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-product',
@@ -15,12 +13,7 @@ export class ProductComponent  implements OnInit{
 
   prod: Product = new Product();
 
-  // showId = true;
-  id = 0;
-  slug: string = '';
-  idToGetProduct = this.route.snapshot.params ['productId'];
-  currentURL: any = this.router.url;
-
+  slug = this.route.snapshot.params ['slug'];
   constructor(private http: HttpClient,
               public productService: ProductService,
               private router: Router,
@@ -29,45 +22,24 @@ export class ProductComponent  implements OnInit{
 
 
   ngOnInit() {
-    console.log("ngOnInit. this.router.url=" + this.router.url);
-
-    if (this.idToGetProduct) {
-      console.log('ngOnInit. idToGetProduct=' + this.idToGetProduct);
-      this.productService.getProduct(this.slug, this.idToGetProduct)
+    console.log(this.slug);
+    if (this.slug) {
+      this.productService.getProduct(this.slug)
         .subscribe((response) => {
-          console.log("Done productService.getProduct. old this.prod = " + JSON.stringify(this.prod));
-          console.log("Done productService.getProduct. response = " + JSON.stringify(response));
           this.setProduct(response);
-          console.log("Done productService.getProduct. new this.prod = " + JSON.stringify(this.prod));
-
         });
     }
-
-    console.log("ngOnInit. Done.");
   }
 
 
-
+  onImageError(event: any) {
+    event.target.src = 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
+  }
 
   setProduct(updatedProduct: Product) {
     console.log("Setting this.prod = " + JSON.stringify(updatedProduct));
     this.prod = updatedProduct;
   }
-
-
-
-  onFileSelected (event: any) {
-    console.log(event);
-    const selectedImageFile : File = event.target.files[0];
-    const formData = new FormData();
-    formData.append('image', selectedImageFile, selectedImageFile.name )
-    this.http.post<MediasObjectModel>(GlobalVariables.baseURL + 'products/media' , formData)
-      .subscribe(response => {
-        console.log(response);
-        this.prod.medias.push(response);
-      });
-  }
-
 
 
 }
