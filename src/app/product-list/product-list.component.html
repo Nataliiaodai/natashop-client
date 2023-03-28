@@ -2,7 +2,7 @@
   <!--  <hr>-->
 
   <div class="search-box">
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search" style="width: 40%; display: flex">
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search" style="width: 40%; display: flex;">
       <input type="search" class="form-control search-input" placeholder="Search..." ngModel name="sortInput"
              [(ngModel)]="this.sortInput" aria-label="Search">
       <button class="btn joinBtn" type="submit" (click)="onSearch(this.sortInput)">Find</button>
@@ -41,7 +41,7 @@
              (error)="onImageError($event)">
       </div>
       <p>{{productListItem.name}}</p>
-      <p>Price: {{productListItem.price}}</p>
+      <p>Price: {{productListItem.price}} $</p>
     </div>
 
   </div>
@@ -61,7 +61,7 @@
       »
     </button>
     <button type="button" class="btn btn-link page-item" ngModel name="pagesTotal" [(ngModel)]="this.pagesTotal"
-            (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer"> Pages Total: {{this.pagesTotal}}</button>
+            (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer"> Pages Total: <b>{{this.pagesTotal}}</b> </button>
   </div>
 
 </div>

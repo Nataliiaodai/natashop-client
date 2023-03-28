@@ -1,15 +1,41 @@
-<title>{{prod._id}}</title>
-<title>{{prod.name}}</title>
-<title>{{prod.price}}</title>
-<p>{{prod.fullDescription}}</p>
-<div *ngFor="let mediaItem of prod.medias">
-  <div class="image-container">
-    <img style="height: 150px; width: 150px; margin-bottom: 10px"
-         src="{{mediaItem.variantsUrls.large_square}}" alt="{{mediaItem.altText}}"
-         (error)="onImageError($event)">
+<div class="container">
+  <div style="display: flex; justify-content: space-between">
+      <p><b>{{prod.name}}</b></p>
+      <p> Price: {{prod.price}}$</p>
+
   </div>
+
+  <hr>
+
+  <div class="gallery">
+    <div class="gallery-image-list">
+        <img (click)="onGalleryItemSelected(mediaItem.variantsUrls.large)" class="gallery-image-item" *ngFor="let mediaItem of prod.medias"
+             src="{{mediaItem.variantsUrls.small}}" alt="{{mediaItem.altText}}"
+             (error)="onImageError($event)">
+    </div>
+
+
+    <div class="selected-image-container">
+      <img class="selected-image-item"
+           src="{{mainImage}}" alt="{{mainAltImageText}}"
+           (error)="onImageError($event)">
+    </div>
+  </div>
+
+
+  <hr>
+
+
+<!--  <div *ngFor="let mediaItem of prod.medias">-->
+<!--    <div class="image-container">-->
+<!--      <img style="max-height: 250px; max-width: 450px; margin-bottom: 10px"-->
+<!--           src="{{mediaItem.variantsUrls.large_square}}" alt="{{mediaItem.altText}}"-->
+<!--           (error)="onImageError($event)">-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <div [innerHTML]="prod.fullDescription" style="max-width: 600px"></div>
 </div>
-<p>ffgff</p>
 
 
 

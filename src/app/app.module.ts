@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { NotFoundComponent } from './not-found/not-found.component';
+import {CarouselModule} from "ngx-owl-carousel-o";
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ProductComponent,
     NotFoundComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        CarouselModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

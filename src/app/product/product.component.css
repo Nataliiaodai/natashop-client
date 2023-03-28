@@ -1,0 +1,46 @@
+.gallery {
+  position: relative;
+  display: flex;
+  min-width: 600px;
+}
+
+
+.gallery-image-list {
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 237px;
+  padding: 0 10px 0 0;
+  overflow-y: auto;
+}
+
+
+.gallery-image-item {
+  width: 60px;
+  height: 60px;
+  padding: 2px;
+  object-fit: contain;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .5s ease;
+}
+
+.gallery-image-item:hover{
+  width: 70px;
+  height: 70px;
+  transform: scale(1.5);
+}
+
+.selected-image-container {
+  width: 237px;
+  display: flex;
+  align-items: center;
+}
+
+
+.selected-image-item {
+  width: 100%;
+}
+
+
+
