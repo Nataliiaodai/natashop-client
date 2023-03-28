@@ -22,13 +22,14 @@
   object-fit: contain;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: transform .5s ease;
+  /*transition: transform .5s ease;*/
 }
 
 .gallery-image-item:hover{
   width: 70px;
   height: 70px;
-  transform: scale(1.5);
+  border-color: grey;
+  /*transform: scale(1.5);*/
 }
 
 .selected-image-container {
