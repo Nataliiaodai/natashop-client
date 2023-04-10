@@ -3,7 +3,7 @@
   grid-template-columns: repeat(5, 1fr);
   /*grid-column-gap: 2em;*/
   height: fit-content;
-  border-right: grey 1px solid;
+  border-left: grey 1px solid;
   border-top: grey 1px solid;
   /*grid-row-gap: 2em;*/
   margin-bottom: 40px;
@@ -13,7 +13,7 @@
   cursor: pointer;
   text-align: center;
   border-bottom: solid grey 1px;
-  border-left: solid grey 1px;
+  border-right: solid grey 1px;
   padding: 16px
 }
 
