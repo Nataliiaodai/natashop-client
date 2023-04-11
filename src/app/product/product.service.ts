@@ -13,7 +13,7 @@ export class ProductService {
 
 
   getProduct(slug: string):Observable<Product> {
-    return this.http.get<Product>(GlobalVariables.baseURL + '/slug/' + slug);
+    return this.http.get<Product>(GlobalVariables.baseURL + 'products/slug/' + slug);
   }
 
 

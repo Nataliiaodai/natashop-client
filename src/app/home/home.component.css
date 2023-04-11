@@ -1,0 +1,23 @@
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.background1 {
+  background-image: url("https://klondike.com.ua/upload/blog/izobrazhenie_viber_2021-10-29_11-34-22-051.jpg");
+}
+
+.background2 {
+  background-image: url("https://klondike.com.ua/upload/wysiwyg/philosofers-stone-potal-susal-zolochenie-10.jpeg");
+}
+
+.category-name {
+  cursor: pointer;
+  margin-bottom: 0;
+  color: gray;
+}
+
+.category-name:hover {
+  text-decoration: underline;
+}

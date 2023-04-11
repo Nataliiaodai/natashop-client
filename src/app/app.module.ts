@@ -9,13 +9,16 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { NotFoundComponent } from './not-found/not-found.component';
 import {CarouselModule} from "ngx-owl-carousel-o";
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent,
   ],
     imports: [
         BrowserModule,

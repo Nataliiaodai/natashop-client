@@ -58,7 +58,7 @@ export class ProductComponent  implements OnInit{
     this.prod = updatedProduct;
     console.log(this.prod);
     this.mainImage = this.prod.medias[0]?.variantsUrls?.large;
-    this.mainAltImageText = this.prod.medias[0]?.altText;
+    this.mainAltImageText = this.prod.medias[0]?.altText.uk;
     // console.log(this.mainImage);
     // console.log(this.mainAltImageText);
   }

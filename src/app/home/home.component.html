@@ -1,0 +1,107 @@
+<div class="container">
+
+  <div class="search-box">
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search" style="width: 40%; display: flex;">
+      <input type="search" class="form-control search-input" placeholder="Search..." ngModel name="sortInput"
+              aria-label="Search">
+      <button class="btn" type="submit">Find</button>
+    </form>
+  </div>
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"
+              aria-current="true"></button>
+    </div>
+    <div class="carousel-inner" style="height: 500px; margin-bottom: 50px; padding-left: 8px; padding-right: 8px;">
+      <div class="carousel-item background1" style="height: 100%;">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+             preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect width="100%" height="100%" fill="rgba(245,185,160,0.38)"></rect>
+        </svg>
+        <div class="container">
+          <div class="carousel-caption text-start" style="color: black">
+            <h1>Gilding</h1>
+            <p>Gilding is a decorative technique for applying a very thin coating of gold over solid surfaces such as
+              metal (most common), wood, porcelain, or stone. A gilded object is also described as "gilt". Where metal
+              is gilded, the metal below was traditionally silver in the West, to make silver-gilt (or vermeil) objects,
+              but gilt-bronze is commonly used in China, and also called ormolu if it is Western. Methods of gilding
+              include hand application and gluing, typically of gold leaf, chemical gilding, and electroplating, the
+              last also called gold plating.Parcel-gilt (partial gilt) objects are only gilded over part of their
+              surfaces. This may mean that all of the inside, and none of the outside, of a chalice or similar vessel is
+              gilded, or that patterns or images are made up by using a combination of gilt and ungilted areas.</p>
+            <p>Gilding gives an object a gold appearance at a fraction of the cost of creating a solid gold object. In
+              addition, a solid gold piece would often be too soft or too heavy for practical use. A gilt surface also
+              does not tarnish as silver does.</p>
+            <p><a class="btn btn-lg btn-light">See Category</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item active background2" style="height: 100%">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+             preserveAspectRatio="xMidYMid slice" focusable="false">
+          <rect width="100%" height="100%" fill="rgba(245,185,160,0.38)"></rect>
+        </svg>
+        <div class="container">
+          <div class="carousel-caption" style="color: black;">
+            <h1>Philosopher's Stone. Leaf gilding. </h1>
+            <p>Philosopher's Stone</p>
+            <p>Our studio is engaged in professional leaf gilding of plaster stucco, interiors, bas-reliefs, carved
+              products, frames for mirrors, paintings, panels, restoration of leaf gilding. Solid gold and silver,
+              potal, mirror potal. A wide range of techniques and technologies will allow you to choose the effect you
+              need: glossy and matte gilding, antique copper gold, aged potal, craquelure, patina, oxidation of potal
+              and much more.</p>
+            <p>philosophersstone.com.ua</p>
+            <p>YouTube канал</p>
+            <p> +38 (063) 31-77-433</p>
+            <p><a class="btn btn-lg btn-light">Browse gallery of works</a></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+</div>
+
+
+<div style="width: 100%; display: flex; justify-content: center; margin-bottom: 50px">
+  <div style=" width: 1500px;display: grid; grid-template-columns: repeat(3, 1fr);  grid-row-gap: 2em; grid-column-gap: 2em;">
+
+    <!-- Two columns of text below the carousel -->
+    <div *ngFor="let mainCategory of this.categoryTree.data">
+      <div style="width: 500px; height: 400px; border: 1px solid rgba(128,128,128,0.46);padding: 10px ">
+
+        <h4 class="fw-normal category-name" style="text-align: center; margin-bottom: 20px;"> {{mainCategory.name}}</h4>
+
+        <!--        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first-->
+        <!--          column.</p>-->
+        <div style="display: flex; justify-content: center">
+          <div *ngFor="let imageItem of mainCategory.medias">
+            <img style="width: 250px; height: 250px;" src="{{imageItem.variantsUrls.medium}}" alt="{{imageItem.altText.uk}}">
+          </div>
+          <div style=" height: 290px">
+              <p class="category-name" *ngFor="let child of mainCategory.children" style="font-size: small;">{{child.name}}</p>
+
+<!--            <div>-->
+<!--              <p><a style="margin-top: 10px; border: 1px solid gray;" class="btn btn-light">View details »</a></p>-->
+<!--            </div>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+

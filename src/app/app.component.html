@@ -8,41 +8,50 @@
   <title>Natashop</title>
 </head>
 <body>
-
+<hr>
 <div class="container">
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom header-base">
-<!--  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom bck-cl">-->
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a  class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between  header-base">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" >
+            <a routerLink="/client/home" routerLinkActive="active-link" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
               <img src="https://cdn-icons-png.flaticon.com/512/546/546064.png?w=826&t=st=1679395295~exp=1679395895~hmac=65c0a7c28fcabccbabcdcf7248bf08b1fac48564ae5ebdf7b61adbf443f59850"
                    alt="logo" style="width: 45px; height: 40px; margin-right: 5px">
-<!--              <h3>NataShop</h3>-->
             </a>
             <h3 style="margin-bottom: 0">NataShop</h3>
           </div>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="#" class="nav-link px-2 link-dark">Home</a></li>
-      <li><a class="nav-link px-2 link-dark" routerLink="/client/catalog" routerLinkActive="active-link">Catalog</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">Contacts</a></li>
-      <li><a href="#" class="nav-link px-2 link-dark">About Us</a></li>
+      <li><a class="nav-link px-2 link-dark underline-hover" routerLink="/client/home" routerLinkActive="active-link">Home</a></li>
+      <li><a class="nav-link px-2 link-dark underline-hover" routerLink="/client/catalog" routerLinkActive="active-link">Catalog</a></li>
+      <li><a class="nav-link px-2 link-dark underline-hover" >Pricing</a></li>
+      <li><a class="nav-link px-2 link-dark underline-hover" >Contacts</a></li>
+      <li><a  class="nav-link px-2 link-dark underline-hover" >About Us</a></li>
     </ul>
-
-<!--            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">-->
-<!--              <input type="search" class="form-control" placeholder="Search..." aria-label="Search">-->
-<!--            </form>-->
 
     <div class="col-md-3 text-end">
       <button type="button" class="btn btn-outline-dark me-2">Login</button>
       <button type="button" class="btn btn-dark btn-outline">Sign-up</button>
     </div>
   </header>
+  </div>
 
-
+  <hr>
+  <div class="container">
+  <ul class="d-grid gap-2 d-md-flex">
+    <li class="base-item">
+      <svg  style="margin-right: 5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg>
+      <a onclick="history.back()" class="base-item-link" >Go Back</a>
+    </li>
+  </ul>
+</div>
 
 <router-outlet></router-outlet>
 
-    <footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer-base">
+<hr>
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center footer-base">
       <div class="col-md-4 d-flex align-items-center">
         <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <img src="https://cdn-icons-png.flaticon.com/512/546/546064.png?w=826&t=st=1679395295~exp=1679395895~hmac=65c0a7c28fcabccbabcdcf7248bf08b1fac48564ae5ebdf7b61adbf443f59850"
@@ -82,5 +91,7 @@
     </footer>
 
 </div>
+<hr>
 </body>
+
 </html>

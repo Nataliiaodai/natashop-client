@@ -14,7 +14,7 @@ export class ProductListService  {
 
 
   public fetchProductPage(page: number, limit: number, searchString: string, sort: string, direction: string): Observable<ProductPage> {
-     let url = `${GlobalVariables.baseURL}?page=${page}&limit=${limit}&searchString=${searchString}&sort=${sort}&direction=${direction}`;
+     let url = `${GlobalVariables.baseURL}products?page=${page}&limit=${limit}&searchString=${searchString}&sort=${sort}&direction=${direction}`;
     console.log("GET" + url)
     return this.http.get<ProductPage>(url);
   }

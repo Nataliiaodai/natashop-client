@@ -27,17 +27,17 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchAndSaveResponseData();
+    this.fetchAndSaveResponse();
   }
 
 
   onLimitChange() {
     this.page = 1;
-    this.fetchAndSaveResponseData();
+    this.fetchAndSaveResponse();
   }
 
 
-  fetchAndSaveResponseData() {
+  fetchAndSaveResponse() {
     this.productListService.fetchProductPage(this.page, this.limit, this.searchString, this.sort, this.direction)
       .subscribe((productPageResponse) => {
         console.log(productPageResponse);
@@ -56,7 +56,7 @@ export class ProductListComponent implements OnInit {
   onSearch(sortInput: string) {
     this.searchString = sortInput;
     this.page = 1;
-    this.fetchAndSaveResponseData();
+    this.fetchAndSaveResponse();
     // if (this.itemsFiltered === 0) {
       // this.router.navigate(['client/catalog/notFound-404'])
       //   .then();
@@ -66,17 +66,17 @@ export class ProductListComponent implements OnInit {
 
   onGettingNextPage() {
       this.page += 1;
-      this.fetchAndSaveResponseData();
+      this.fetchAndSaveResponse();
   }
 
   onGettingPreviousPage() {
       this.page -= 1;
-      this.fetchAndSaveResponseData();
+      this.fetchAndSaveResponse();
   }
 
   onGettingPage(totalPages: number) {
     this.page = totalPages;
-    this.fetchAndSaveResponseData();
+    this.fetchAndSaveResponse();
   }
 
   onGetProductDetail(prodSlug: string) {
