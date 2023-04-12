@@ -3,8 +3,8 @@
   grid-template-columns: repeat(5, 1fr);
   /*grid-column-gap: 2em;*/
   height: fit-content;
-  border-left: grey 1px solid;
-  border-top: grey 1px solid;
+  border-left: rgba(128, 128, 128, 0.49) 1px solid;
+  border-top: rgba(128, 128, 128, 0.49) 1px solid;
   /*grid-row-gap: 2em;*/
   margin-bottom: 40px;
 }
@@ -12,8 +12,8 @@
 .grid-wrapper-item {
   cursor: pointer;
   text-align: center;
-  border-bottom: solid grey 1px;
-  border-right: solid grey 1px;
+  border-bottom: rgba(128, 128, 128, 0.49) 1px solid;
+  border-right: rgba(128, 128, 128, 0.49) 1px solid;
   padding: 16px
 }
 

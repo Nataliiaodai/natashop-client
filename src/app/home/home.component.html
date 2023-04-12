@@ -1,20 +1,30 @@
-<div class="container">
+<!--<div class="container">-->
+<div style="display: flex;margin-left: 115px;margin-right: 115px;">
 
-  <div class="search-box">
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search" style="width: 40%; display: flex;">
-      <input type="search" class="form-control search-input" placeholder="Search..." ngModel name="sortInput"
-              aria-label="Search">
-      <button class="btn" type="submit">Find</button>
-    </form>
+  <div style="width: 20%;margin-bottom: 50px;">
+
+    <div style="width: 100%; height: 100%; border: 1px solid rgba(128,128,128,0.46);padding: 55px 10px">
+      <h4 *ngFor="let mainCategory of this.categoryTree.data"
+          class="fw-normal category-home-list"> {{mainCategory.name}}
+        <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+           viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+         </span>
+
+      </h4>
+    </div>
   </div>
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="width: 80%; margin-bottom: 50px;">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"
               aria-current="true"></button>
     </div>
-    <div class="carousel-inner" style="height: 500px; margin-bottom: 50px; padding-left: 8px; padding-right: 8px;">
+    <div class="carousel-inner" style="height: 500px;">
       <div class="carousel-item background1" style="height: 100%;">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
              preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -71,30 +81,27 @@
     </button>
   </div>
 
+
 </div>
+
+<!--</div>-->
 
 
 <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 50px">
-  <div style=" width: 1500px;display: grid; grid-template-columns: repeat(3, 1fr);  grid-row-gap: 2em; grid-column-gap: 2em;">
-
-    <!-- Two columns of text below the carousel -->
+  <div
+    style=" width: 1500px;display: grid; grid-template-columns: repeat(3, 1fr);  grid-row-gap: 2em; grid-column-gap: 2em;">
     <div *ngFor="let mainCategory of this.categoryTree.data">
-      <div style="width: 500px; height: 400px; border: 1px solid rgba(128,128,128,0.46);padding: 10px ">
+      <div style="width: 470px; height: 380px; border: 1px solid rgba(128,128,128,0.46);padding: 10px ">
 
         <h4 class="fw-normal category-name" style="text-align: center; margin-bottom: 20px;"> {{mainCategory.name}}</h4>
-
-        <!--        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first-->
-        <!--          column.</p>-->
         <div style="display: flex; justify-content: center">
           <div *ngFor="let imageItem of mainCategory.medias">
-            <img style="width: 250px; height: 250px;" src="{{imageItem.variantsUrls.medium}}" alt="{{imageItem.altText.uk}}">
+            <img style="width: 240px; height: 240px;" src="{{imageItem.variantsUrls.medium}}"
+                 alt="{{imageItem.altText.uk}}">
           </div>
           <div style=" height: 290px">
-              <p class="category-name" *ngFor="let child of mainCategory.children" style="font-size: small;">{{child.name}}</p>
-
-<!--            <div>-->
-<!--              <p><a style="margin-top: 10px; border: 1px solid gray;" class="btn btn-light">View details »</a></p>-->
-<!--            </div>-->
+            <p class="category-name" *ngFor="let child of mainCategory.children"
+               style="font-size: small;">{{child.name}}</p>
           </div>
         </div>
       </div>
