@@ -21,7 +21,7 @@
   text-align: left;
   /*margin-bottom: 30px;*/
   margin-bottom: 0;
-  padding: 15px 0;
+  padding: 15px;
   font-size: medium;
   font-weight: normal;
   display: flex;
@@ -36,17 +36,6 @@
 }
 
 
-/*.dropbtn {*/
-/*  padding: 10px;*/
-/*  width: 100%;*/
-/*  font-size: 16px;*/
-/*  border: 1px rgba(128, 128, 128, 0.52) solid;*/
-/*  background-color: white;*/
-/*  color: black;*/
-/*  border-radius: 0.375rem;*/
-/*  margin-bottom: 5px;*/
-/*}*/
-
 .main-banner-box {
   width: 80%;
   display: flex;
@@ -55,58 +44,37 @@
 }
 
 
-.catalog{
-  padding: 52px 15px;
-  width: 20%;
-  font-size: 16px;
-  border: 1px solid rgba(128, 128, 128, 0.46);  background-color: white;
-  color: black;
-}
-
-
 .dropdown-content {
   display: none;
-  /*display: block;*/
-  border: 1px dotted blue;
-  background-color: white;
-  padding: 20px 15px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  top: 0;
   position: absolute;
-  width: 60%;
+  left: 276px;
+  /*left: 262px;*/
+  /* height: 500px; */
   height: 100%;
+  /*width: 800px;*/
+  width: 1107px;
+  background-color: white;
+  padding: 15px 15px;
   /*overflow-y: auto;*/
   z-index: 200000;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-  border: 1px rgba(128, 128, 128, 0.52) solid;
-  border-radius: 0.375rem;
+.category-home-list:hover .dropdown-content {
+  display: flex;
+  /*border: 1px rgba(128, 128, 128, 0.52) solid;*/
 }
 
-.dropdown-category-list {
-  padding: 15px;
-  margin-bottom: 0;
-  display: flex;
-  flex-wrap: wrap;
-
-  /*display: grid;*/
-  /*grid-template-columns: repeat(2, 1fr);*/
-  /* grid-column-gap: 10px;*/
-  width: 100%;
-  height: fit-content;
-  /*grid-row-gap: 1em;*/
+.category-home-item:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: red;
 }
 
-.dropdown-category-list-item {
-  background-color: rgba(128, 128, 128, 0.16);
-  /*width: 100px;*/
-  width: fit-content;
-  border-radius: 5%;
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5px;
-  margin-bottom: 10px;
-  margin-right: 10px;
+
+.category-home-child:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

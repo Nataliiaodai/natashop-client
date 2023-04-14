@@ -1,9 +1,9 @@
 <!--<div class="container">-->
 <div class="main-banner-box dropdown">
-  .
-    <div class="catalog">
-      <h4  style="position: relative;" class="fw-normal category-home-list " *ngFor="let mainCategory of this.categoryTree.data"> {{mainCategory.name}}
-        <span>
+  <div style="width: 20%; padding: 51px 0 51px 10px;">
+    <h4 class="fw-normal category-home-list"
+        *ngFor="let mainCategory of this.categoryTree.data"> {{mainCategory.name}}
+      <span>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
            viewBox="0 0 16 16">
         <path fill-rule="evenodd"
@@ -11,9 +11,36 @@
       </svg>
          </span>
 
-      </h4>
-    </div>
+      <span class="dropdown-content">
+           <ul *ngFor="let child of mainCategory.children" style="width: fit-content; list-style-type: none; margin: 5px;">
+              <li style=" list-style-type: none">
+               <span class="category-home-item"><b>{{child.name}}</b></span>
+                <ul *ngFor="let grandChild of  child.children" style="margin-top: 10px">
+<!--                  <br>-->
+                  <li style="list-style-type: none">
+               <span class="category-home-child">{{grandChild.name}}</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
 
+        <img style="width: 200px; height: 200px; border-radius: 100px;border: 2px solid rgba(128,128,128,0.21); padding: 6px" *ngFor="let categoryImage of mainCategory.medias" src="{{categoryImage.variantsUrls.small}}" alt="{{categoryImage.altText.uk}}">
+        <!--           <ul style="width: fit-content">-->
+        <!--              <li *ngFor="let child of mainCategory.children">-->
+        <!--                           {{child.name}}-->
+        <!--                <ul >-->
+        <!--                  <li *ngFor="let grandChild of  child.children">-->
+        <!--              {{grandChild.name}}-->
+        <!--                  </li>-->
+        <!--                </ul>-->
+        <!--              </li>-->
+        <!--            </ul>-->
+
+        </span>
+    </h4>
+
+
+  </div>
 
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="width: 80%; margin-bottom: 50px;">
 
@@ -22,21 +49,8 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"
               aria-current="true"></button>
     </div>
-    <div class="carousel-inner" style="height: 500px; position: relative;">
+    <div class="carousel-inner" style="height: 500px;">
 
-      <div class="dropdown-content">
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-        <p>hello</p>
-
-      </div>
 
       <div class="carousel-item background1" style="height: 100%;">
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
