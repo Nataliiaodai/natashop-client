@@ -10,6 +10,8 @@ import {FormsModule} from "@angular/forms";
 import { NotFoundComponent } from './not-found/not-found.component';
 import {CarouselModule} from "ngx-owl-carousel-o";
 import { HomeComponent } from './home/home.component';
+import {TransCategSlugToNamePipe} from "./pipes/transCategIdToName.pipe";
+import { CategoryComponent } from './category/category.component';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { HomeComponent } from './home/home.component';
     ProductComponent,
     NotFoundComponent,
     HomeComponent,
+    TransCategSlugToNamePipe,
+    CategoryComponent,
   ],
     imports: [
         BrowserModule,

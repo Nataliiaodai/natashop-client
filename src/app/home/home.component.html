@@ -1,6 +1,6 @@
 <!--<div class="container">-->
 <div class="main-banner-box dropdown">
-  <div style="width: 20%; padding: 51px 0 51px 10px;">
+  <div style="width: 25%; padding: 51px 0 51px 10px;">
     <h4 class="fw-normal category-home-list"
         *ngFor="let mainCategory of this.categoryTree.data">{{mainCategory.name}}
       <span>
@@ -13,20 +13,20 @@
 
       <span class="dropdown-content">
            <ul *ngFor="let child of mainCategory.children"
-               style="width: fit-content; list-style-type: none; margin-bottom: 20px; margin-right: 10px; border-radius: 5px; padding: 5px 10px;
+               style="width: fit-content; list-style-type: none; margin-bottom: 20px; margin-right: 5px; border-radius: 5px; padding: 5px 5px 10px 5px;
     background-color: #8080800f;">
               <li style=" list-style-type: none">
-               <span class="category-home-item"><b>{{child.name}}</b></span>
+               <span (click)="onGetCategoryDetail(child.slug)" class="category-home-item"><b>{{child.name}}</b></span>
                 <ul class="subcategory" *ngFor="let grandChild of  child.children" style="margin-top: 5px;">
                   <li style="list-style-type: none">
-               <span class="category-home-child">{{grandChild.name}}</span>
+               <span (click)="onGetCategoryDetail(grandChild.slug)" class="category-home-child">{{grandChild.name}}</span>
                   </li>
                 </ul>
               </li>
             </ul>
 
         <img
-          style="width: 200px; height: 200px; border-radius: 100px;border: 2px solid rgba(128,128,128,0.21); padding: 6px"
+          style="width: 150px; height: 150px; border-radius: 100px;border: 2px solid rgba(128,128,128,0.21); padding: 6px; position: absolute; right: 0; bottom: 0"
           *ngFor="let categoryImage of mainCategory.medias" src="{{categoryImage.variantsUrls.small}}"
           alt="{{categoryImage.altText.uk}}">
         </span>

@@ -1,13 +1,11 @@
-import {MultiLangText} from "./multiLangText.model";
-
 
 export class CategoryModel {
   id: number;
-  name: MultiLangText;
+  name: string;
   slug: string;
   description: string;
 
-  constructor(id = 0, name: MultiLangText = new MultiLangText(), slug = '', description = '') {
+  constructor(id = 0, name= '', slug = '', description = '') {
     this.id = id;
     this.name = name;
     this.slug = slug;

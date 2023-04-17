@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {CategoryTreeModel} from "../shared-model/category-tree.model";
-import {CategoryModel} from "../shared-model/category.model";
-import {HomeService} from "./home.service";
+import {CategoryService} from "../category/category.service";
 
 @Component({
   selector: 'app-home',
@@ -13,9 +12,8 @@ export class HomeComponent implements OnInit {
 
 
   categoryTree: CategoryTreeModel = new CategoryTreeModel();
-  category: CategoryModel = new CategoryModel();
 
-  constructor(public homeService: HomeService,
+  constructor(public categoryService: CategoryService,
               public router: Router,
              ) {
   }
@@ -26,29 +24,20 @@ export class HomeComponent implements OnInit {
 
 
   fetchCategoryTree() {
-    this.homeService.fetchCategoryList()
+    this.categoryService.fetchCategoryList()
       .subscribe((categoryTreeResponse) => {
         console.log(categoryTreeResponse);
         this.categoryTree = categoryTreeResponse;
-        for (let mainCategory of this.categoryTree.data) {
-          console.log(mainCategory.name);
-        }
 
       })
   };
 
-  // fetchCategory(id: number) {
-  //   this.categoryService.fetchCategory(id)
-  //     .subscribe((categoryResponse) => {
-  //       console.log(`fetchCategory id=${id} categoryResponse=${categoryResponse}`);
-  //       this.setCategory(categoryResponse);
-  //     });
-  // };
 
-  // setCategory(updatedCategory: CategoryModel) {
-  //   console.log("Setting this.category = " + JSON.stringify(updatedCategory));
-  //   this.category = updatedCategory;
-  // }
+  onGetCategoryDetail(categorySlug: string) {
+    console.log(categorySlug);
+    this.router.navigate([`categories/${categorySlug}`])
+      .then();
+  }
 
 
 }

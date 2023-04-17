@@ -21,18 +21,13 @@
            (error)="onImageError($event)">
     </div>
   </div>
+  <div>
+<!--    <p>Category:{{category.slug | transCategIdToName | async}}</p>-->
+    <p>Category: <span *ngFor="let category of prod.categories">{{category.slug | transCategSlugToName | async}} , </span></p>
+  </div>
 
 
   <hr>
-
-
-<!--  <div *ngFor="let mediaItem of prod.medias">-->
-<!--    <div class="image-container">-->
-<!--      <img style="max-height: 250px; max-width: 450px; margin-bottom: 10px"-->
-<!--           src="{{mediaItem.variantsUrls.large_square}}" alt="{{mediaItem.altText}}"-->
-<!--           (error)="onImageError($event)">-->
-<!--    </div>-->
-<!--  </div>-->
 
   <div [innerHTML]="prod.fullDescription" style="max-width: 600px"></div>
 </div>

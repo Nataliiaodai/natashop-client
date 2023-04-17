@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Product} from "../shared-model/product.model";
 import {ProductService} from "./product.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {CategoryModel} from "../shared-model/category.model";
 
 @Component({
   selector: 'app-product',
@@ -13,12 +14,11 @@ export class ProductComponent  implements OnInit{
 
   prod: Product = new Product();
 
-  // mainImage = this.prod.medias[0]?.variantsUrls?.large;
-  // mainAltImageText = this.prod.medias[0]?.altText;
   mainImage: string = '';
   mainAltImageText: string = '';
+  category: CategoryModel = new CategoryModel();
 
-  slug = this.route.snapshot.params ['slug'];
+  slug: string = this.route.snapshot.params ['slug'];
   constructor(private http: HttpClient,
               public productService: ProductService,
               private router: Router,
@@ -28,10 +28,6 @@ export class ProductComponent  implements OnInit{
 
 
   ngOnInit() {
-    // console.log(this.mainImage);
-    // console.log(this.mainAltImageText);
-
-
     console.log(this.slug);
     if (this.slug) {
       this.productService.getProduct(this.slug)
@@ -46,7 +42,6 @@ export class ProductComponent  implements OnInit{
       console.log(selectedImage);
       console.log(this.mainImage);
     this.mainImage = selectedImage;
-  //    // this.mainAltImageText =
   }
 
   onImageError(event: any) {
@@ -54,13 +49,10 @@ export class ProductComponent  implements OnInit{
   }
 
   setProduct(updatedProduct: Product) {
-    // console.log("Setting this.prod = " + JSON.stringify(updatedProduct));
     this.prod = updatedProduct;
     console.log(this.prod);
     this.mainImage = this.prod.medias[0]?.variantsUrls?.large;
     this.mainAltImageText = this.prod.medias[0]?.altText.uk;
-    // console.log(this.mainImage);
-    // console.log(this.mainAltImageText);
   }
 
 

@@ -41,6 +41,7 @@
   display: flex;
   margin: 0 160px 50px 160px;
   height: 501px;
+  position: relative;
 }
 
 
@@ -50,8 +51,8 @@
   flex-wrap: wrap;
   top: 0;
   position: absolute;
-  left: 276px;
-  /*left: 262px;*/
+  /*left: 276px;*/
+  left: 314px;
   /* height: 500px; */
   height: 100%;
   /*width: 800px;*/
