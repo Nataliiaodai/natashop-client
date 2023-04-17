@@ -13,7 +13,8 @@
 
       <span class="dropdown-content">
            <ul *ngFor="let child of mainCategory.children"
-               style="width: fit-content; list-style-type: none; margin-bottom: 15px">
+               style="width: fit-content; list-style-type: none; margin-bottom: 20px; margin-right: 10px; border-radius: 5px; padding: 5px 10px;
+    background-color: #8080800f;">
               <li style=" list-style-type: none">
                <span class="category-home-item"><b>{{child.name}}</b></span>
                 <ul class="subcategory" *ngFor="let grandChild of  child.children" style="margin-top: 5px;">
