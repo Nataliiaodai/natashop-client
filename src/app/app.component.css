@@ -7,7 +7,7 @@
 }
 
 
-.main-home-nav-link{
+.main-home-nav-link {
   color: #376690;
 }
 
@@ -22,16 +22,17 @@
   justify-content: center;
 }
 
-.login-btn{
-  border: 1px solid rgba(128,128,128,0.48); color: gray
+.login-btn {
+  border: 1px solid rgba(128, 128, 128, 0.48);
+  color: gray
 }
 
 .second-header-box {
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.base-item-link{
+.base-item-link {
   text-decoration: none;
   cursor: pointer;
   width: 100px;

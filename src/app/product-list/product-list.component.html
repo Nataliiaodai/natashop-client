@@ -25,9 +25,9 @@
     </select>
   </div>
 
-<!--  <div class="flex-list">-->
+  <!--  <div class="flex-list">-->
 
-<!--  </div>-->
+  <!--  </div>-->
 
   <!--<hr>-->
 
@@ -47,7 +47,8 @@
   </div>
 
   <div class="pagination">
-    <button type="button" class="btn btn-link page-item" [ngClass]="{visibilityHidden: this.page === 1}" (click)="onGettingPreviousPage()">
+    <button type="button" class="btn btn-link page-item" [ngClass]="{visibilityHidden: this.page === 1}"
+            (click)="onGettingPreviousPage()">
       «
     </button>
     <button type="button" class="btn btn-link page-item" *ngIf="this.page > 1" (click)="onGettingPreviousPage()"
@@ -61,7 +62,8 @@
       »
     </button>
     <button type="button" class="btn btn-link page-item" ngModel name="pagesTotal" [(ngModel)]="this.pagesTotal"
-            (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer"> Pages Total: <b>{{this.pagesTotal}}</b> </button>
+            (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer"> Pages Total: <b>{{this.pagesTotal}}</b>
+    </button>
   </div>
 
 </div>

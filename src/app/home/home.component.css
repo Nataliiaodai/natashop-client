@@ -78,3 +78,8 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+
+.subcategory:last-child {
+  margin-bottom: 20px;
+}

@@ -2,7 +2,7 @@
 <div class="main-banner-box dropdown">
   <div style="width: 20%; padding: 51px 0 51px 10px;">
     <h4 class="fw-normal category-home-list"
-        *ngFor="let mainCategory of this.categoryTree.data"> {{mainCategory.name}}
+        *ngFor="let mainCategory of this.categoryTree.data">{{mainCategory.name}}
       <span>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
            viewBox="0 0 16 16">
@@ -12,11 +12,11 @@
          </span>
 
       <span class="dropdown-content">
-           <ul *ngFor="let child of mainCategory.children" style="width: fit-content; list-style-type: none; margin: 5px;">
+           <ul *ngFor="let child of mainCategory.children"
+               style="width: fit-content; list-style-type: none; margin-bottom: 15px">
               <li style=" list-style-type: none">
                <span class="category-home-item"><b>{{child.name}}</b></span>
-                <ul *ngFor="let grandChild of  child.children" style="margin-top: 10px">
-<!--                  <br>-->
+                <ul class="subcategory" *ngFor="let grandChild of  child.children" style="margin-top: 5px;">
                   <li style="list-style-type: none">
                <span class="category-home-child">{{grandChild.name}}</span>
                   </li>
@@ -24,18 +24,10 @@
               </li>
             </ul>
 
-        <img style="width: 200px; height: 200px; border-radius: 100px;border: 2px solid rgba(128,128,128,0.21); padding: 6px" *ngFor="let categoryImage of mainCategory.medias" src="{{categoryImage.variantsUrls.small}}" alt="{{categoryImage.altText.uk}}">
-        <!--           <ul style="width: fit-content">-->
-        <!--              <li *ngFor="let child of mainCategory.children">-->
-        <!--                           {{child.name}}-->
-        <!--                <ul >-->
-        <!--                  <li *ngFor="let grandChild of  child.children">-->
-        <!--              {{grandChild.name}}-->
-        <!--                  </li>-->
-        <!--                </ul>-->
-        <!--              </li>-->
-        <!--            </ul>-->
-
+        <img
+          style="width: 200px; height: 200px; border-radius: 100px;border: 2px solid rgba(128,128,128,0.21); padding: 6px"
+          *ngFor="let categoryImage of mainCategory.medias" src="{{categoryImage.variantsUrls.small}}"
+          alt="{{categoryImage.altText.uk}}">
         </span>
     </h4>
 

@@ -9,7 +9,7 @@ export class CategoryTreeItemModel {
   medias: CategoryMediasModel [];
   children: CategoryTreeItemModel [];
 
-  constructor(_id = 0, parentId = 0,  name:  '', slug = '', medias: CategoryMediasModel [] = [], children: CategoryTreeItemModel [] = []) {
+  constructor(_id = 0, parentId = 0, name: '', slug = '', medias: CategoryMediasModel [] = [], children: CategoryTreeItemModel [] = []) {
     this._id = _id;
     this.parentId = parentId;
     this.name = name;
