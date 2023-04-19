@@ -7,9 +7,14 @@
   background-image: url("https://klondike.com.ua/upload/wysiwyg/philosofers-stone-potal-susal-zolochenie-10.jpeg");
 }
 
+main-category {
+  margin-bottom: 10px;
+}
+
 .category-name {
+  text-align: center;
   cursor: pointer;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   color: #376690;
 }
 
@@ -63,6 +68,16 @@
   z-index: 200000;
 }
 
+.dropdown-content-list {
+  width: fit-content;
+  list-style-type: none;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px 5px 10px 5px;
+  background-color: #8080800f;
+}
+
 .category-home-list:hover .dropdown-content {
   display: flex;
   /*border: 1px rgba(128, 128, 128, 0.52) solid;*/
@@ -84,3 +99,36 @@
 /*.subcategory:last-child {*/
 /*  margin-bottom: 20px;*/
 /*}*/
+
+
+.category-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px
+}
+
+.category-block-wrapper {
+  width: 1500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 2em;
+  grid-column-gap: 2em;
+}
+
+.category-block-item {
+  width: 470px;
+  height: 428px;
+  border: 1px solid rgba(128, 128, 128, 0.46);
+  padding: 10px
+}
+
+.category-block-item-wrapper {
+  display: flex;
+  justify-content: center
+}
+
+.category-image {
+  width: 200px;
+  height: 200px;
+}
