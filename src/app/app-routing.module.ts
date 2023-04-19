@@ -12,7 +12,6 @@ const routes: Routes = [
   {path: ':slug', component: ProductComponent},
   {path: 'client/catalog/notFound-404', component: NotFoundComponent},
   {path: 'categories/:categorySlug', component: CategoryComponent},
-
 ]
 
 @NgModule({

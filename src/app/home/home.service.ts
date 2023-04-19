@@ -6,8 +6,8 @@ import {Router} from "@angular/router";
 })
 export class HomeService {
 
-  constructor(public router: Router) { }
 
+  constructor(public router: Router) { }
 
 
 }

@@ -1,1 +1,68 @@
-<p>category works!</p>
+<div class="container">
+  <div class="container">
+
+    <div class="search-box">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search-form" role="search" style="width: 40%; display: flex;">
+        <input type="search" class="form-control search-input" placeholder="Search..." ngModel name="sortInput"
+               [(ngModel)]="this.sortInput" aria-label="Search">
+        <button class="btn joinBtn" type="submit" (click)="onSearch(this.sortInput)">Find</button>
+      </form>
+    </div>
+
+    <div class="flex-list">
+      <p class="margin" style=" margin-right: 15px;">Items on Page</p>
+      <select ngModel name="limit"
+              [(ngModel)]="this.limit"
+              (change)="onLimitChange()"
+              class="form-select"
+              aria-label="Default select example"
+              style="width: 80px;">
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="250">250</option>
+        <option value="500">500</option>
+      </select>
+    </div>
+
+    <div class="grid-category-wrapper">
+      <div (click)="onGetProductDetail(productListItem.slug)" class="grid-wrapper-item"
+           *ngFor="let productListItem of this.productList;">
+        <div class="image-container">
+          <img style="height: 150px; width: 150px; margin-bottom: 10px"
+               src="{{productListItem.medias[0]?.variantsUrls?.small}}" alt="{{productListItem.medias[0]?.altText}}"
+               (error)="onImageError($event)">
+        </div>
+        <p>{{productListItem.name}}</p>
+        <p>Price: {{productListItem.price}} $</p>
+      </div>
+
+    </div>
+
+    <div class="pagination">
+      <button type="button" class="btn btn-link page-item" [ngClass]="{visibilityHidden: this.page === 1}"
+              (click)="onGettingPreviousPage()">
+        «
+      </button>
+      <button type="button" class="btn btn-link page-item" *ngIf="this.page > 1" (click)="onGettingPreviousPage()"
+              style="cursor: pointer"> {{this.page - 1}}</button>
+      <button type="button" class="btn btn-link page-item activePage">{{this.page}}</button>
+      <button type="button" class="btn btn-link page-item" *ngIf="this.pagesTotal > this.page"
+              (click)="onGettingNextPage()" style="cursor: pointer">{{this.page + 1}}</button>
+      <button type="button" class="btn btn-link page-item"
+              [ngClass]="{visibilityHidden: this.page  >= this.pagesTotal}" (click)="onGettingNextPage()"
+              style="cursor: pointer">
+        »
+      </button>
+      <button type="button" class="btn btn-link page-item" ngModel name="pagesTotal" [(ngModel)]="this.pagesTotal"
+              (click)="onGettingPage(this.pagesTotal)" style="cursor: pointer"> Pages Total: <b>{{this.pagesTotal}}</b>
+      </button>
+    </div>
+
+  </div>
+
+
+
+
+
+</div>
