@@ -13,6 +13,9 @@ export class AppComponent implements OnInit{
   categoryMenu: boolean = false;
   categoryTree: CategoryTreeModel = new CategoryTreeModel();
 
+  // currentURL: any = this.router.url;
+
+
   constructor(public router: Router,
               private categoryService: CategoryService) {
   }
@@ -37,6 +40,7 @@ export class AppComponent implements OnInit{
     this.categoryMenu = !this.categoryMenu;
     this.router.navigate([`categories/${categorySlug}`])
       .then();
+    // console.log(this.router.url);
   }
 
 }

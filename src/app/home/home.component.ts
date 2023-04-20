@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
 
   categoryTree: CategoryTreeModel = new CategoryTreeModel();
+  categoryMenu: boolean = false;
 
   constructor(public categoryService: CategoryService,
               public router: Router,
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
 
   onGetCategoryDetail(categorySlug: string) {
     console.log(categorySlug);
+    this.categoryMenu = !this.categoryMenu;
     this.router.navigate([`categories/${categorySlug}`])
       .then();
   }
