@@ -62,7 +62,7 @@
       </div>
 
 
-      <button (click)="this.categoryMenu = !this.categoryMenu" class="btn  d-inline-flex align-items-center"
+      <button  class="btn  d-inline-flex align-items-center"
               type="button"
               style="border: 1px solid rgba(128,128,128,0.48); color: gray">
         <svg style=" margin-right: 5px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -87,16 +87,15 @@
 </div>
 
 
-<!--this.router.url === '/client/home'-->
-
-<div *ngIf="this.categoryMenu === true" style="max-width: 1468px; margin: 0 auto; z-index: 10000">
+<div [ngStyle]="{'display': this.router.url === '/client/home'? 'block' : 'none'}"style="max-width: 1468px; margin: 0 auto; z-index: 10000">
 
   <div class="category-dropdown-box dropdown">
-
     <div class="category-dropdown-wrapper">
+      <div class="category-home-list"
+          *ngFor="let mainCategory of this.categoryTree.data">
+<!--        <span (mouseover)="hideElement = false" (mouseleave)="hideElement = true">-->
 
-      <h4 class="fw-normal category-home-list"
-          *ngFor="let mainCategory of this.categoryTree.data">{{mainCategory.name}}
+        {{mainCategory.name}}
         <span style="padding: 5px">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
            viewBox="0 0 16 16">
@@ -104,9 +103,11 @@
               d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
       </svg>
          </span>
+<!--         </span>-->
 
 
-        <span class="dropdown-menu-box">
+<!--        [hidden]="hideElement"-->
+        <div class="dropdown-menu-box"   style="border: 1px solid rgba(128, 128, 128, 0.18);">
            <ul class="dropdown-menu-list" *ngFor="let child of mainCategory.children">
               <li style=" list-style-type: none">
                <span (click)="onGetCategoryDetail(child.slug)" class="dropdown-menu-item"><b>{{child.name}}</b></span>
@@ -118,17 +119,14 @@
                 </ul>
               </li>
             </ul>
-
         <img class="dropdown-menu-image"
              *ngFor="let categoryImage of mainCategory.medias" src="{{categoryImage.variantsUrls.small}}"
              alt="{{categoryImage.altText.uk}}">
-        </span>
-      </h4>
+        </div>
+
+      </div>
     </div>
-
-
   </div>
-
 
 </div>
 

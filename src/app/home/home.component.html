@@ -1,83 +1,5 @@
-<!--<div class="container">-->
-<!--<div class="main-banner-box dropdown">-->
-<div class="main-banner-box" style="width: 80%; margin: 0 auto 50px auto">
-<!--  <div style="width: 25%; padding: 51px 0 51px 10px;">-->
-<!--    <h4 class="fw-normal category-home-list"-->
-<!--        *ngFor="let mainCategory of this.categoryTree.data">{{mainCategory.name}}-->
-<!--      <span>-->
-<!--      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"-->
-<!--           viewBox="0 0 16 16">-->
-<!--        <path fill-rule="evenodd"-->
-<!--              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>-->
-<!--      </svg>-->
-<!--         </span>-->
-
-<!--      <span class="dropdown-content">-->
-<!--           <ul class="dropdown-content-list" *ngFor="let child of mainCategory.children">-->
-<!--              <li style=" list-style-type: none">-->
-<!--               <span (click)="onGetCategoryDetail(child.slug)" class="category-home-item"><b>{{child.name}}</b></span>-->
-<!--                <ul class="subcategory" *ngFor="let grandChild of  child.children" style="margin-top: 5px;">-->
-<!--                  <li style="list-style-type: none">-->
-<!--               <span (click)="onGetCategoryDetail(grandChild.slug)"-->
-<!--                     class="category-home-child">{{grandChild.name}}</span>-->
-<!--                  </li>-->
-<!--                </ul>-->
-<!--              </li>-->
-<!--            </ul>-->
-
-<!--        <img-->
-<!--          style="width: 150px; height: 150px; border-radius: 100px;border: 2px solid rgba(128,128,128,0.21); padding: 6px; position: absolute; right: 0; bottom: 0"-->
-<!--          *ngFor="let categoryImage of mainCategory.medias" src="{{categoryImage.variantsUrls.small}}"-->
-<!--          alt="{{categoryImage.altText.uk}}">-->
-<!--        </span>-->
-<!--    </h4>-->
-<!--  </div>-->
-
-
-  <div *ngIf="this.categoryMenu === true" style="max-width: 1468px; margin: 0 auto; z-index: 10000">
-  <div class="category-dropdown-box dropdown">
-
-    <div  class="category-dropdown-wrapper">
-      <h4 class="fw-normal category-home-list"
-          *ngFor="let mainCategory of this.categoryTree.data">{{mainCategory.name}}
-        <span style="padding: 5px">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentColor" class="bi bi-chevron-right"
-           viewBox="0 0 16 16">
-        <path fill-rule="evenodd"
-              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-      </svg>
-         </span>
-
-        <span class="dropdown-menu-box">
-           <ul class="dropdown-menu-list" *ngFor="let child of mainCategory.children">
-              <li style=" list-style-type: none">
-               <span (click)="onGetCategoryDetail(child.slug)" class="dropdown-menu-item"><b>{{child.name}}</b></span>
-                <ul class="subcategory" *ngFor="let grandChild of  child.children" style="margin-top: 5px;">
-                  <li style="list-style-type: none">
-               <span (click)="onGetCategoryDetail(grandChild.slug)"
-                     class="dropdown-menu-child">{{grandChild.name}}</span>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-
-        <img class="dropdown-menu-image"
-             *ngFor="let categoryImage of mainCategory.medias" src="{{categoryImage.variantsUrls.small}}"
-             alt="{{categoryImage.altText.uk}}">
-        </span>
-      </h4>
-    </div>
-
-  </div>
-
-</div>
-
-
-
-
-
-
-
+<div class="main-banner-box" style="width: 1112px; margin: 0px 136px 50px auto; ">
+<!--  margin-left: 480px;-->
 
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" >
 
@@ -86,7 +8,7 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"
               aria-current="true"></button>
     </div>
-    <div class="carousel-inner" style="height: 500px;">
+    <div class="carousel-inner" style="height: 556px;padding-bottom: 1px;padding-top: 1px;">
 
 
       <div class="carousel-item background1" style="height: 100%;">

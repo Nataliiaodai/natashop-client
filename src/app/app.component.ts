@@ -10,10 +10,8 @@ import {CategoryService} from "./category/category.service";
 })
 export class AppComponent implements OnInit{
   title = 'my-client-proj';
-  categoryMenu: boolean = false;
   categoryTree: CategoryTreeModel = new CategoryTreeModel();
-
-  // currentURL: any = this.router.url;
+  hideCategoryMenu: boolean = false;
 
 
   constructor(public router: Router,
@@ -37,7 +35,8 @@ export class AppComponent implements OnInit{
 
   onGetCategoryDetail(categorySlug: string) {
     console.log(categorySlug);
-    this.categoryMenu = !this.categoryMenu;
+    // this.categoryMenu = !this.categoryMenu;
+
     this.router.navigate([`categories/${categorySlug}`])
       .then();
     // console.log(this.router.url);
