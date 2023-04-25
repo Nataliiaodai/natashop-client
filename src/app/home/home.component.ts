@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   fetchCategoryTree() {
     this.categoryService.fetchCategoryList()
       .subscribe((categoryTreeResponse) => {
-        console.log(categoryTreeResponse);
+        // console.log(categoryTreeResponse);
         this.categoryTree = categoryTreeResponse;
 
       })

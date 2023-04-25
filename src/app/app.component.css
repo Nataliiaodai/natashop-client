@@ -49,7 +49,7 @@
 
 
 .dropdown-menu-box {
-  display: none;
+  /*display: none;*/
   /*display: flex;*/
   justify-content: flex-start;
   flex-direction: column;
@@ -90,7 +90,7 @@
 .category-dropdown-box{
   width: 350px;
   display: flex;
-  height: 525px;
+  height: 555px;
   position: absolute;
   background-color: white;
   /*border: 1px solid rgba(128, 128, 128, 0.18);*/
@@ -122,9 +122,9 @@
 }
 
 
-.category-home-list:hover .dropdown-menu-box {
-  display: flex;
-}
+/*.category-home-list:hover .dropdown-menu-box {*/
+/*  display: flex;*/
+/*}*/
 
 .dropdown-menu-item:hover {
   cursor: pointer;

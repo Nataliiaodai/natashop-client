@@ -8,10 +8,12 @@ import {CategoryService} from "./category/category.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'my-client-proj';
   categoryTree: CategoryTreeModel = new CategoryTreeModel();
-  hideCategoryMenu: boolean = false;
+  hideCategoryMenu: boolean = true;
+  // visibleCategoryId: number = 50;
+  visibleCategoryId: number = 0;
 
 
   constructor(public router: Router,
@@ -23,23 +25,38 @@ export class AppComponent implements OnInit{
     this.fetchCategoryTree();
   }
 
+  onMouseOver(id: number) {
+    console.log('hovered on category Id: ', id);
+    this.visibleCategoryId = id;
+  }
+
+  onMouseLeave() {
+    console.log('leaved');
+  }
 
   fetchCategoryTree() {
     this.categoryService.fetchCategoryList()
       .subscribe((categoryTreeResponse) => {
-        console.log(categoryTreeResponse);
+        console.log(categoryTreeResponse,  ' FROM APP FetchTree');
         this.categoryTree = categoryTreeResponse;
-
+        this.setVisibleCategoryId();
       })
   };
 
+  private setVisibleCategoryId() {
+    if (this.router.url !== '/client/home') {
+      this.visibleCategoryId = this.categoryTree.data[0]._id;
+    }
+  }
+
   onGetCategoryDetail(categorySlug: string) {
     console.log(categorySlug);
-    // this.categoryMenu = !this.categoryMenu;
-
     this.router.navigate([`categories/${categorySlug}`])
-      .then();
-    // console.log(this.router.url);
+      .then(() => {
+        this.setVisibleCategoryId();
+        console.log('onGetCategoryDetail  NAVIGATE', this.visibleCategoryId);
+      });
+
   }
 
 }
