@@ -28,10 +28,12 @@ export class AppComponent implements OnInit {
   onMouseOver(id: number) {
     console.log('hovered on category Id: ', id);
     this.visibleCategoryId = id;
+    this.hideCategoryMenu = false;
   }
 
   onMouseLeave() {
     console.log('leaved');
+    this.hideCategoryMenu = true;
   }
 
   fetchCategoryTree() {
@@ -47,14 +49,15 @@ export class AppComponent implements OnInit {
     if (this.router.url !== '/client/home') {
       this.visibleCategoryId = this.categoryTree.data[0]._id;
     }
+    console.log('onGetCategoryDetail  NAVIGATE', this.visibleCategoryId);
   }
 
   onGetCategoryDetail(categorySlug: string) {
     console.log(categorySlug);
     this.router.navigate([`categories/${categorySlug}`])
       .then(() => {
-        this.setVisibleCategoryId();
-        console.log('onGetCategoryDetail  NAVIGATE', this.visibleCategoryId);
+
+
       });
 
   }

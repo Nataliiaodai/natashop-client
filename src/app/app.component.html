@@ -93,8 +93,9 @@
     <div class="category-dropdown-wrapper">
 
 
-      <div class="category-home-list" id="i" (mouseover)="onMouseOver(mainCategory._id)" (mouseleave)="onMouseLeave()"
-          *ngFor="let mainCategory of this.categoryTree.data, let i = index;">
+      <div  class="category-home-list" id="i" (mouseover)="onMouseOver(mainCategory._id)" (mouseleave)="onMouseLeave()"
+          *ngFor="let mainCategory of this.categoryTree.data, let i = index;"
+        [ngStyle]="{'background-color': mainCategory._id === visibleCategoryId && hideCategoryMenu === false ? 'rgba(233, 150, 122, 0.13)' : 'transparent'}">
 
         {{mainCategory.name}}
 
@@ -106,8 +107,7 @@
       </svg>
          </span>
 
-
-        <div  class="dropdown-menu-box" [ngStyle]="{'display': mainCategory._id === visibleCategoryId ? 'flex' : 'none'}" style="border: 1px solid rgba(128, 128, 128, 0.18);">
+        <div *ngIf="hideCategoryMenu === false" class="dropdown-menu-box" [ngStyle]="{'display': mainCategory._id === visibleCategoryId ? 'flex' : 'none'}"  style="border: 1px solid rgba(128, 128, 128, 0.18);">
            <ul class="dropdown-menu-list"  *ngFor="let child of mainCategory.children">
               <li style=" list-style-type: none">
                <span (click)="onGetCategoryDetail(child.slug)" class="dropdown-menu-item"><b>{{child.name}}</b></span>
