@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ProductPage} from "../shared-model/product-page.model";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {GlobalVariables} from "../global-variables";
 
 @Injectable({
@@ -10,6 +10,8 @@ import {GlobalVariables} from "../global-variables";
 export class ProductListService  {
 
  public defaultFilters: any = {}
+
+  needReloadProductList$ = new Subject<void>();
 
   constructor(private http: HttpClient) {}
 

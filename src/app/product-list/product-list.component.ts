@@ -2,6 +2,7 @@ import {AfterContentInit, AfterViewInit, Component, Input, OnInit} from '@angula
 import {ProductListService} from "./product-list.service";
 import {ProductListItem} from "../shared-model/product-list-item.model";
 import {Router} from "@angular/router";
+import {CategoryService} from "../category/category.service";
 
 @Component({
   selector: 'app-product-list',
@@ -24,11 +25,12 @@ export class ProductListComponent implements OnInit, AfterViewInit {
 
 
   constructor(public productListService: ProductListService,
-              public router: Router) {
+              public router: Router,
+              public categoryService: CategoryService) {
   }
 
   ngOnInit() {
-    // this.fetchAndSaveResponse();
+
   }
 
   ngAfterViewInit() {
@@ -64,20 +66,20 @@ export class ProductListComponent implements OnInit, AfterViewInit {
     this.page = 1;
     this.fetchAndSaveResponse();
     // if (this.itemsFiltered === 0) {
-      // this.router.navigate(['client/catalog/notFound-404'])
-      //   .then();
+    // this.router.navigate(['client/catalog/notFound-404'])
+    //   .then();
     // }
   };
 
 
   onGettingNextPage() {
-      this.page += 1;
-      this.fetchAndSaveResponse();
+    this.page += 1;
+    this.fetchAndSaveResponse();
   }
 
   onGettingPreviousPage() {
-      this.page -= 1;
-      this.fetchAndSaveResponse();
+    this.page -= 1;
+    this.fetchAndSaveResponse();
   }
 
   onGettingPage(totalPages: number) {

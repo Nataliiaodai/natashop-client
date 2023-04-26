@@ -39,7 +39,6 @@ export class CategoryComponent implements OnInit{
         this.category = res;
         console.log(this.category.id)
         this.productListService.defaultFilters.categoryId = this.category.id;
-
       }
     )
   }
@@ -48,6 +47,7 @@ export class CategoryComponent implements OnInit{
   // async getCategoryId() : Promise<number> {
   //   return 1;
   // }
+
 
 
 

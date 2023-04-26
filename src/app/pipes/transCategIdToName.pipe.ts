@@ -1,7 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {firstValueFrom, Observable} from "rxjs";
+import {firstValueFrom} from "rxjs";
 import {CategoryService} from "../category/category.service";
-import {CategoryModel} from "../shared-model/category.model";
 
 @Pipe({
   name: 'transCategSlugToName'
