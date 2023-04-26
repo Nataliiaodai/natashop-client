@@ -11,7 +11,7 @@ export class ProductListService  {
 
  public defaultFilters: any = {}
 
-  needReloadProductList$ = new Subject<void>();
+  needToReloadProductList$ = new Subject<void>();
 
   constructor(private http: HttpClient) {}
 

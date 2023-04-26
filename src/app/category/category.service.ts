@@ -4,7 +4,6 @@ import {CategoryModel} from "../shared-model/category.model";
 import {GlobalVariables} from "../global-variables";
 import {CategoryTreeModel} from "../shared-model/category-tree.model";
 import {HttpClient} from "@angular/common/http";
-import {ProductPage} from "../shared-model/product-page.model";
 import {Router} from "@angular/router";
 
 

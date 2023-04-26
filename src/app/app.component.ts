@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   visibleCategoryId: number = 0;
   category: CategoryModel = new CategoryModel();
 
-  categorySlug: string = this.route.snapshot.params ['categorySlug'];
+  // categorySlug: string = this.route.snapshot.params ['categorySlug'];
 
 
 
@@ -32,13 +32,13 @@ export class AppComponent implements OnInit {
   }
 
   onMouseOver(id: number) {
-    console.log('hovered on category Id: ', id);
+    // console.log('hovered on category Id: ', id);
     this.visibleCategoryId = id;
     this.hideCategoryMenu = false;
   }
 
   onMouseLeave() {
-    console.log('leaved');
+    // console.log('leaved');
     this.hideCategoryMenu = true;
   }
 
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
     if (this.router.url !== '/client/home') {
       this.visibleCategoryId = this.categoryTree.data[0]._id;
     }
-    console.log('onGetCategoryDetail  NAVIGATE', this.visibleCategoryId);
+    console.log('setVisibleCategoryId ', this.visibleCategoryId);
   }
 
   onGetCategoryDetail(categorySlug: string) {

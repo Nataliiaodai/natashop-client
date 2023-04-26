@@ -39,6 +39,7 @@ export class CategoryComponent implements OnInit{
         this.category = res;
         console.log(this.category.id)
         this.productListService.defaultFilters.categoryId = this.category.id;
+        this.productListService.needToReloadProductList$.next();
       }
     )
   }

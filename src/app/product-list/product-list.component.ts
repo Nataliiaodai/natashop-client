@@ -1,15 +1,16 @@
-import {AfterContentInit, AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ProductListService} from "./product-list.service";
 import {ProductListItem} from "../shared-model/product-list-item.model";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 import {CategoryService} from "../category/category.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit, AfterViewInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   sortInput: string = '';
 
   page: number = 1;
@@ -23,29 +24,48 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   itemsTotal = 0;
   itemsFiltered = 0;
 
+  subscription: Subscription;
 
   constructor(public productListService: ProductListService,
-              public router: Router,
-              public categoryService: CategoryService) {
+              public router: Router,) {
+
+    console.log('subscribed');
+    this.subscription = this.productListService.needToReloadProductList$.subscribe(() => {
+      console.log('fetchProductList from SUBSC');
+      this.fetchProductList();
+    })
+
   }
 
   ngOnInit() {
+    // this.subscription = this.productListService.needToReloadProductList$.subscribe(() => {
+    //    console.log('fetchProductList from SUBSC')
+    //    this.fetchProductList();
+    //  })
+    console.log('ngOnInit from PRODList');
+
+    if (this.router.url === '/client/catalog') {
+      this.productListService.defaultFilters['categoryId'] = undefined;
+      console.log('fetchProductList from ngOnInit')
+      this.fetchProductList();
+    }
 
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.fetchAndSaveResponse();
-    })
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    console.log('unsubscribed');
   }
+
 
   onLimitChange() {
     this.page = 1;
-    this.fetchAndSaveResponse();
+    console.log('fetchProductList from onLimitChange')
+    this.fetchProductList();
   }
 
 
-  fetchAndSaveResponse() {
+  fetchProductList() {
     this.productListService.fetchProductPage(this.page, this.limit, this.searchString, this.sort, this.direction)
       .subscribe((productPageResponse) => {
         console.log(productPageResponse);
@@ -64,7 +84,8 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   onSearch(sortInput: string) {
     this.searchString = sortInput;
     this.page = 1;
-    this.fetchAndSaveResponse();
+    console.log('fetchProductList from onSearch')
+    this.fetchProductList();
     // if (this.itemsFiltered === 0) {
     // this.router.navigate(['client/catalog/notFound-404'])
     //   .then();
@@ -74,17 +95,20 @@ export class ProductListComponent implements OnInit, AfterViewInit {
 
   onGettingNextPage() {
     this.page += 1;
-    this.fetchAndSaveResponse();
+    console.log('fetchProductList from onGettingNextPage')
+    this.fetchProductList();
   }
 
   onGettingPreviousPage() {
     this.page -= 1;
-    this.fetchAndSaveResponse();
+    console.log('fetchProductList from onGettingPreviousPage')
+    this.fetchProductList();
   }
 
   onGettingPage(totalPages: number) {
     this.page = totalPages;
-    this.fetchAndSaveResponse();
+    console.log('fetchProductList from onGettingPage')
+    this.fetchProductList();
   }
 
   onGetProductDetail(prodSlug: string) {
