@@ -9,13 +9,17 @@ import {GlobalVariables} from "../global-variables";
 })
 export class ProductListService  {
 
+ public defaultFilters: any = {}
+
   constructor(private http: HttpClient) {}
 
-
-
   public fetchProductPage(page: number, limit: number, searchString: string, sort: string, direction: string): Observable<ProductPage> {
-     let url = `${GlobalVariables.baseURL}products?page=${page}&limit=${limit}&searchString=${searchString}&sort=${sort}&direction=${direction}`;
-    console.log("GET" + url)
+
+    let url = `${GlobalVariables.baseURL}products?page=${page}&limit=${limit}&searchString=${searchString}&sort=${sort}&direction=${direction}`;
+    if (this.defaultFilters['categoryId']) {
+      url = url + `&categoryId=${this.defaultFilters['categoryId']}`;
+    }
+
     return this.http.get<ProductPage>(url);
   }
 

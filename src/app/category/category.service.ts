@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {CategoryModel} from "../shared-model/category.model";
 import {GlobalVariables} from "../global-variables";
 import {CategoryTreeModel} from "../shared-model/category-tree.model";
 import {HttpClient} from "@angular/common/http";
 import {ProductPage} from "../shared-model/product-page.model";
+import {Router} from "@angular/router";
 
 
 @Injectable({
@@ -12,7 +13,10 @@ import {ProductPage} from "../shared-model/product-page.model";
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) { }
+  needReloadCategory$ = new Subject<void>();
+
+  constructor(private http: HttpClient,
+              public router: Router,) { }
 
   public fetchCategoryList(): Observable<CategoryTreeModel> {
     let url = `${GlobalVariables.baseURL}categories/tree`;
@@ -28,17 +32,15 @@ export class CategoryService {
   };
 
 
-  public fetchCategoryPage(page: number, limit: number, searchString: string, sort: string, direction: string, categoryId: number): Observable<ProductPage> {
-    let url = `${GlobalVariables.baseURL}products?page=${page}&limit=${limit}&searchString=${searchString}&sort=${sort}&direction=${direction}&categoryId=${categoryId}`;
-    console.log("GET" + url);
-    console.log(categoryId);
-    return this.http.get<ProductPage>(url);
-  }
-
-  // setCategory(updatedCategory: CategoryModel) {
-  //   console.log("Setting this.category = " + JSON.stringify(updatedCategory));
-  //   this.category = updatedCategory;
+  // public fetchCategoryPage(page: number, limit: number, searchString: string, sort: string, direction: string, categoryId: number)
+  //   : Observable<ProductPage> {
+  //   let url = `${GlobalVariables.baseURL}products?page=${page}&limit=${limit}
+  //   &searchString=${searchString}&sort=${sort}&direction=${direction}&categoryId=${categoryId}`;
+  //   console.log("GET" + url);
+  //   console.log(categoryId);
+  //   return this.http.get<ProductPage>(url);
   // }
+
 
 
 }

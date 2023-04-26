@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {ProductListService} from "./product-list.service";
 import {ProductListItem} from "../shared-model/product-list-item.model";
 import {Router} from "@angular/router";
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, AfterViewInit {
   sortInput: string = '';
 
   page: number = 1;
@@ -22,14 +22,20 @@ export class ProductListComponent implements OnInit {
   itemsTotal = 0;
   itemsFiltered = 0;
 
+
   constructor(public productListService: ProductListService,
               public router: Router) {
   }
 
   ngOnInit() {
-    this.fetchAndSaveResponse();
+    // this.fetchAndSaveResponse();
   }
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.fetchAndSaveResponse();
+    })
+  }
 
   onLimitChange() {
     this.page = 1;
@@ -82,7 +88,9 @@ export class ProductListComponent implements OnInit {
   onGetProductDetail(prodSlug: string) {
     console.log(prodSlug);
     this.router.navigate([`${prodSlug}`])
-      .then();
+      .then(
+
+      );
   }
 
 }

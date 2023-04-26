@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryTreeModel} from "../shared-model/category-tree.model";
 import {CategoryService} from "../category/category.service";
+import {CategoryModel} from "../shared-model/category.model";
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,12 @@ export class HomeComponent implements OnInit {
 
   categoryTree: CategoryTreeModel = new CategoryTreeModel();
   categoryMenu: boolean = false;
+  category: CategoryModel = new CategoryModel();
+
 
   constructor(public categoryService: CategoryService,
               public router: Router,
-             ) {
+  ) {
   }
 
   ngOnInit() {
