@@ -60,9 +60,10 @@
   height: 556px;
   width: 1125px;
   background-color: white;
-  border: none;
+  /*border: none;*/
   /*padding: 15px 15px;*/
   padding: 15px 15px 15px 15px;
+  /*border: 1px solid rgba(128, 128, 128, 0.18);*/
   /*overflow-y: auto;*/
   z-index: 10000;
 }
@@ -83,7 +84,7 @@
   height: 556px;
   width: 100%;
   padding: 20px 0 20px 10px;
-  border: 1px solid rgba(128, 128, 128, 0.18);
+  /*border: 1px solid rgba(128, 128, 128, 0.18);*/
 }
 
 
